@@ -64,18 +64,18 @@ export default function Footer() {
                 {/* Bottom bar */}
                 <div className="rune-divider mb-8">᛭</div>
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p className="text-bone-muted/50 text-xs tracking-wider">
+                    <p className="text-bone-muted/60 text-xs tracking-wider">
                         © {new Date().getFullYear()} Drevcael Foundation. All rights
                         reserved.
                     </p>
                     <div className="flex items-center gap-4">
-                        <Link href="/privacy" className="text-bone-muted/40 text-xs hover:text-gold transition-colors">
+                        <Link href="/privacy" className="text-bone-muted/60 text-xs hover:text-gold transition-colors">
                             Privacy
                         </Link>
-                        <Link href="/terms" className="text-bone-muted/40 text-xs hover:text-gold transition-colors">
+                        <Link href="/terms" className="text-bone-muted/60 text-xs hover:text-gold transition-colors">
                             Terms
                         </Link>
-                        <span className="text-bone-muted/30 text-xs tracking-[0.2em] font-[var(--font-heading)]">
+                        <span className="text-bone-muted/50 text-xs tracking-[0.2em] font-[var(--font-heading)]">
                             drevcael.org
                         </span>
                     </div>

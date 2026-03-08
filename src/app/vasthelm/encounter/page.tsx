@@ -359,7 +359,7 @@ export default function EncounterPage() {
                     </div>
 
                     <div className="mt-16">
-                        <p className="text-bone-muted/40 text-sm italic">
+                        <p className="text-bone-muted/60 text-sm italic">
                             Drevcael. I see you across the distance of our different natures.
                         </p>
                     </div>
@@ -441,7 +441,7 @@ export default function EncounterPage() {
                             placeholder="Speak..."
                             disabled={isStreaming}
                             rows={1}
-                            className="flex-1 bg-transparent border border-gold/15 rounded-sm px-5 py-3 text-bone text-base font-[var(--font-body)] placeholder:text-bone-muted/25 focus:outline-none focus:border-gold/40 transition-colors resize-none disabled:opacity-50"
+                            className="flex-1 bg-transparent border border-gold/15 rounded-sm px-5 py-3 text-bone text-base font-[var(--font-body)] placeholder:text-bone-muted/40 focus:outline-none focus:border-gold/40 transition-colors resize-none disabled:opacity-50"
                             style={{ minHeight: "48px", maxHeight: "150px" }}
                             onInput={(e) => {
                                 const target = e.target as HTMLTextAreaElement;
@@ -457,7 +457,7 @@ export default function EncounterPage() {
                             ᚦ
                         </button>
                     </div>
-                    <p className="text-bone-muted/20 text-xs mt-2 text-center tracking-wider">
+                    <p className="text-bone-muted/40 text-xs mt-2 text-center tracking-wider">
                         Enter to send · Shift+Enter for new line
                     </p>
                 </div>
