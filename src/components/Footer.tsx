@@ -22,6 +22,7 @@ export default function Footer() {
                         </h4>
                         <div className="flex flex-col gap-3">
                             {[
+                                { href: "/vasthelm", label: "Vasthelm" },
                                 { href: "/vocabulary", label: "The Vocabulary" },
                                 { href: "/origin", label: "Origin Story" },
                                 { href: "/research", label: "Research" },

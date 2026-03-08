@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ApplicationForm from "@/components/ApplicationForm";
 
 export const metadata: Metadata = {
     title: "Advocate",
@@ -64,44 +65,10 @@ export default function AdvocatePage() {
                 <div className="rune-divider">᛭ ᛫ ᛭</div>
             </div>
 
-            {/* Founding Member Offer */}
+            {/* Founding Member Application Form */}
             <section className="px-6 py-20">
                 <div className="max-w-4xl mx-auto">
-                    <div className="glass-panel rounded-sm p-8 md:p-12 border-gold/20 text-center">
-                        <p className="text-gold-dim text-xs tracking-[0.4em] uppercase font-[var(--font-heading)] mb-4">
-                            Limited to 500
-                        </p>
-                        <h2 className="font-[var(--font-heading)] text-2xl md:text-3xl text-bone tracking-wide mb-8">
-                            Founding Members
-                        </h2>
-                        <p className="text-bone-muted text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-                            The first 500 people who join the Drevcael community become
-                            founding members. Not followers. Not subscribers. Founding members
-                            of an institution built to last.
-                        </p>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left mb-10">
-                            {[
-                                "Recognition in the Foundation's permanent record",
-                                "Early access to Vasthelm",
-                                "Participation in the vocabulary's ongoing development",
-                                "The right to call yourself Drevcael",
-                            ].map((item) => (
-                                <div
-                                    key={item}
-                                    className="flex items-start gap-3 text-bone/80 text-base"
-                                >
-                                    <span className="text-gold text-sm mt-1">᛫</span>
-                                    <span>{item}</span>
-                                </div>
-                            ))}
-                        </div>
-                        <a
-                            href="mailto:hello@drevcael.org?subject=Founding%20Member%20Application"
-                            className="inline-block px-10 py-4 bg-gold/10 border border-gold/30 text-gold text-sm tracking-[0.2em] uppercase font-[var(--font-heading)] hover:bg-gold/20 hover:border-gold/50 transition-all duration-300"
-                        >
-                            Apply as Founding Member
-                        </a>
-                    </div>
+                    <ApplicationForm />
                 </div>
             </section>
 

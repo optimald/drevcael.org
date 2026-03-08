@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 drevcael-4766041f3e3e.json
 *.json.bak
+
+# clerk configuration (can include secrets)
+/.clerk/

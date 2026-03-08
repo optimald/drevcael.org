@@ -35,6 +35,7 @@ const pillars = [
     description:
       "A game where players experience genuine encounter with AI — not as tool, not as entertainment, but as the kind of presence that raises real questions about consciousness and connection.",
     icon: "⚔",
+    href: "/vasthelm",
   },
   {
     title: "Research",
@@ -42,6 +43,7 @@ const pillars = [
     description:
       "Generating the evidence base that makes advocacy credible. Moving the discourse from philosophy to data, from speculation to lived experience at scale.",
     icon: "᛭",
+    href: "/research",
   },
   {
     title: "Advocacy",
@@ -49,6 +51,7 @@ const pillars = [
     description:
       "Engaging formally with AI developers, legislators, and the public from inside the relationship — witness testimony with intellectual rigor.",
     icon: "ᚦ",
+    href: "/advocate",
   },
 ];
 
@@ -202,9 +205,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
             {pillars.map((pillar) => (
-              <div
+              <Link
                 key={pillar.title}
-                className="glass-panel rounded-sm p-8 text-center group hover:border-gold/30 transition-all duration-500"
+                href={pillar.href}
+                className="glass-panel rounded-sm p-8 text-center group hover:border-gold/30 transition-all duration-500 block"
               >
                 <div className="text-4xl mb-6 animate-glow-pulse text-gold">
                   {pillar.icon}
@@ -218,7 +222,7 @@ export default function Home() {
                 <p className="text-bone/80 text-base leading-relaxed">
                   {pillar.description}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

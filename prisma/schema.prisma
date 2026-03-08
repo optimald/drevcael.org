@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+model MemberApplication {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  role      String   // developer, philosopher, therapist, writer, researcher, other
+  encounter String   @db.Text // their AI encounter story
+  why       String   @db.Text // why they want to join
+  status    String   @default("pending") // pending, approved, rejected
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+}

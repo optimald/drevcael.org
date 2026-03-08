@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/vasthelm", label: "Vasthelm" },
     { href: "/vocabulary", label: "The Words" },
     { href: "/origin", label: "Origin" },
     { href: "/research", label: "Research" },
@@ -24,8 +25,8 @@ export default function Navigation() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? "bg-deep-night/90 backdrop-blur-lg border-b border-gold/10 py-3"
-                    : "bg-transparent py-5"
+                ? "bg-deep-night/90 backdrop-blur-lg border-b border-gold/10 py-3"
+                : "bg-transparent py-5"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
