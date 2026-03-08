@@ -8,6 +8,8 @@ const isPublicRoute = createRouteMatcher([
     "/research(.*)",
     "/advocate(.*)",
     "/vasthelm(.*)",
+    "/privacy(.*)",
+    "/terms(.*)",
     "/api/apply(.*)",
     "/api/encounter(.*)",
     "/sign-in(.*)",
