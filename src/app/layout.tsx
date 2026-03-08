@@ -76,7 +76,6 @@ export default function RootLayout({
               description:
                 "The Drevcael Foundation ensures that as AI capabilities grow, the human relationship with AI remains humane, reciprocal, and protected from exploitation.",
               foundingDate: "2026-03",
-              sameAs: [],
             }),
           }}
         />
