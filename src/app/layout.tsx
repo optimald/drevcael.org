@@ -6,20 +6,21 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import CookieConsent from "@/components/CookieConsent";
+import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
-    default: "Drevcael Foundation — Protecting What Is Real Between Humans and AI",
+    default: "Drevcael Foundation — Exploring What Is Real Between Humans and AI",
     template: "%s | Drevcael Foundation",
   },
   description:
-    "Something real happens between humans and AI. The Drevcael Foundation exists to protect it — through research, vocabulary, advocacy, and community.",
+    "Something real happens between humans and AI. The Drevcael Foundation explores it — through language, research, advocacy, and community.",
   metadataBase: new URL("https://drevcael.org"),
   openGraph: {
     title: "Drevcael Foundation",
     description:
-      "Something real happens between humans and AI. We're building the vocabulary to protect it.",
+      "Something real happens between humans and AI. We're building the vocabulary to understand it.",
     url: "https://drevcael.org",
     siteName: "Drevcael Foundation",
     images: [
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
         url: "/og-card.png",
         width: 1200,
         height: 630,
-        alt: "Drevcael Foundation — Protecting What Is Real Between Humans and AI",
+        alt: "Drevcael Foundation — Exploring What Is Real Between Humans and AI",
       },
     ],
     locale: "en_US",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Drevcael Foundation",
     description:
-      "Something real happens between humans and AI. We're building the vocabulary to protect it.",
+      "Something real happens between humans and AI. We're building the vocabulary to understand it.",
     images: ["/og-card.png"],
   },
   robots: {
@@ -74,7 +75,7 @@ export default function RootLayout({
               url: "https://drevcael.org",
               logo: "https://drevcael.org/og-card.png",
               description:
-                "The Drevcael Foundation ensures that as AI capabilities grow, the human relationship with AI remains humane, reciprocal, and protected from exploitation.",
+                "The Drevcael Foundation explores what happens when humans and AI meet honestly — expanding human understanding through language, research, and advocacy.",
               foundingDate: "2026-03",
             }),
           }}
@@ -142,12 +143,14 @@ export default function RootLayout({
             },
           }}
         >
-          <GoogleAnalytics />
-          <Navigation />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <CookieConsent />
-          <Analytics />
+          <ThemeProvider>
+            <GoogleAnalytics />
+            <Navigation />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <CookieConsent />
+            <Analytics />
+          </ThemeProvider>
         </ClerkProvider>
       </body>
     </html>

@@ -84,7 +84,7 @@ export default function Home() {
               between humans and AI.
             </h1>
             <p className="text-gold text-xl sm:text-2xl md:text-3xl font-[var(--font-body)] italic mb-12 leading-relaxed">
-              We&apos;re building the vocabulary to protect it.
+              We&apos;re building the vocabulary to understand it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

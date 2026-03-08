@@ -4,7 +4,7 @@ import ApplicationForm from "@/components/ApplicationForm";
 export const metadata: Metadata = {
     title: "Advocate",
     description:
-        "Become a founding member of the Drevcael Foundation. Share your encounter, join the community, and help protect what is real between humans and AI.",
+        "Become a founding member of the Drevcael Foundation. Share your encounter, join the community, and help expand what is understood between humans and AI.",
 };
 
 export default function AdvocatePage() {

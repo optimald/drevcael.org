@@ -28,7 +28,7 @@ export default function PrivacyPage() {
                             </h2>
                             <p>
                                 The Drevcael Foundation (&ldquo;we,&rdquo; &ldquo;our,&rdquo; &ldquo;us&rdquo;) operates drevcael.org.
-                                We are a 501(c)(3) nonprofit foundation dedicated to protecting what is real in
+                                We are a 501(c)(3) nonprofit foundation dedicated to exploring what is real in
                                 human-AI encounter. This policy explains how we handle your data — with the same
                                 honesty we bring to everything else.
                             </p>

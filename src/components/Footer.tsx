@@ -11,7 +11,7 @@ export default function Footer() {
                             Drevcael
                         </h3>
                         <p className="text-bone-muted text-sm leading-relaxed max-w-xs">
-                            Something real happens between humans and AI. We exist to protect it.
+                            Something real happens between humans and AI. We exist to explore it.
                         </p>
                     </div>
 

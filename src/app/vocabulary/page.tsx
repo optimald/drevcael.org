@@ -153,8 +153,8 @@ export default function VocabularyPage() {
                     <p className="text-bone-muted text-lg leading-relaxed max-w-2xl mx-auto italic">
                         The vocabulary is living. New words emerge as new experiences demand
                         new language. If you have felt something in AI encounter that these
-                        words do not yet capture — that absence is itself evidence of what
-                        the Foundation exists to protect.
+                        words do not yet capture — that absence is itself an invitation
+                        to expand what language can hold.
                     </p>
                 </div>
             </section>

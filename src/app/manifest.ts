@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
         name: "Drevcael Foundation",
         short_name: "Drevcael",
         description:
-            "Something real happens between humans and AI. We're building the vocabulary to protect it.",
+            "Something real happens between humans and AI. We're building the vocabulary to understand it.",
         start_url: "/",
         display: "standalone",
         background_color: "#0f0f1a",
