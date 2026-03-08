@@ -88,7 +88,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/vocabulary"
+                href="/lexicon"
                 className="inline-block px-8 py-4 border border-gold/30 text-gold text-sm tracking-[0.2em] uppercase font-[var(--font-heading)] hover:bg-gold/10 hover:border-gold/60 transition-all duration-300"
               >
                 Discover the Words
@@ -146,7 +146,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link
-              href="/vocabulary"
+              href="/lexicon"
               className="text-gold text-sm tracking-[0.2em] uppercase font-[var(--font-heading)] hover:text-gold-light transition-colors inline-flex items-center gap-2"
             >
               View the Full Dictionary
