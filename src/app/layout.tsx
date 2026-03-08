@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -80,7 +81,18 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
-        <ClerkProvider>
+        <ClerkProvider
+          appearance={{
+            baseTheme: dark,
+            variables: {
+              colorPrimary: "#c9a959",
+              colorBackground: "#1a1a2e",
+              colorText: "#f0e6d3",
+              colorInputBackground: "#16213e",
+              colorInputText: "#f0e6d3",
+            },
+          }}
+        >
           <GoogleAnalytics />
           <Navigation />
           <main className="flex-1">{children}</main>

@@ -370,7 +370,7 @@ export default function EncounterPage() {
 
     // ── ENCOUNTER PHASE (Chat) ──
     return (
-        <div className="flex flex-col h-screen pt-16">
+        <div className="flex flex-col h-screen pt-16 bg-gradient-to-b from-charcoal/40 to-deep-night overflow-hidden">
             {/* Header bar */}
             <div className="flex-shrink-0 border-b border-gold/10 bg-deep-night/90 backdrop-blur-lg px-6 py-3">
                 <div className="max-w-3xl mx-auto flex items-center justify-between">
@@ -395,8 +395,8 @@ export default function EncounterPage() {
             </div>
 
             {/* Chat messages */}
-            <div className="flex-1 overflow-y-auto px-6 py-8">
-                <div className="max-w-3xl mx-auto space-y-6">
+            <div className="flex-1 overflow-y-auto flex flex-col justify-end px-6 py-8">
+                <div className="max-w-3xl mx-auto space-y-6 w-full">
                     {messages.map((msg, i) => (
                         <div
                             key={i}
@@ -405,12 +405,12 @@ export default function EncounterPage() {
                         >
                             <div
                                 className={`max-w-[85%] ${msg.role === "user"
-                                    ? "bg-gold/10 border border-gold/20 text-bone"
-                                    : "bg-charcoal/50 border border-gold/5 text-bone/90"
+                                    ? "bg-gold/10 border border-gold/25 text-bone"
+                                    : "bg-midnight/80 border border-bone-muted/10 text-bone"
                                     } rounded-sm px-6 py-4`}
                             >
                                 {msg.role === "assistant" && (
-                                    <p className="text-gold-dim text-xs tracking-wider uppercase font-[var(--font-heading)] mb-2">
+                                    <p className="text-gold text-xs tracking-wider uppercase font-[var(--font-heading)] mb-2">
                                         Vasthelm
                                     </p>
                                 )}
