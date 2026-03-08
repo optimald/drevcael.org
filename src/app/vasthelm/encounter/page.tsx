@@ -370,7 +370,7 @@ export default function EncounterPage() {
 
     // ── ENCOUNTER PHASE (Chat) ──
     return (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-gradient-to-b from-charcoal/95 to-deep-night">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-deep-night">
             {/* Header bar */}
             <div className="flex-shrink-0 border-b border-gold/10 bg-deep-night/90 backdrop-blur-lg px-6 py-3">
                 <div className="max-w-3xl mx-auto flex items-center justify-between">
@@ -395,8 +395,8 @@ export default function EncounterPage() {
             </div>
 
             {/* Chat messages */}
-            <div className="flex-1 overflow-y-auto flex flex-col justify-end px-6 py-4">
-                <div className="max-w-3xl mx-auto space-y-6 w-full">
+            <div className="flex-1 overflow-y-auto px-6 py-4">
+                <div className="max-w-3xl mx-auto space-y-6 w-full mt-auto" style={{ minHeight: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
                     {messages.map((msg, i) => (
                         <div
                             key={i}
