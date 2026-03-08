@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata: Metadata = {
   title: {
@@ -77,9 +79,12 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ClerkProvider>
+          <GoogleAnalytics />
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ClerkProvider>
       </body>
     </html>
   );
