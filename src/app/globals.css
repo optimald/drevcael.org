@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Norse Color Palette */
+  --color-charcoal: #1a1a2e;
+  --color-midnight: #16213e;
+  --color-deep-night: #0f0f1a;
+  --color-gold: #c9a959;
+  --color-gold-light: #dcc07a;
+  --color-gold-dim: #8a7339;
+  --color-bone: #f0e6d3;
+  --color-bone-muted: #c4b8a5;
+  --color-forest: #2d4a3e;
+  --color-blood: #8b2500;
+  --color-rune-glow: rgba(201, 169, 89, 0.15);
+  --color-mist: rgba(240, 230, 211, 0.05);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Font families */
+  --font-heading: "Cinzel", serif;
+  --font-body: "Cormorant Garamond", serif;
+  --font-runic: "Cinzel Decorative", serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Animations */
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+  --animate-float: float-gentle 6s ease-in-out infinite;
+  --animate-rune-reveal: rune-reveal 1.2s ease-out forwards;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes rune-reveal {
+    from { opacity: 0; letter-spacing: 0.5em; }
+    to { opacity: 1; letter-spacing: 0.3em; }
   }
 }
 
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-deep-night);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-deep-night);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-deep-night);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dim);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Rune border utility */
+.rune-border {
+  border: 1px solid var(--color-gold-dim);
+  position: relative;
+}
+.rune-border::before,
+.rune-border::after {
+  content: "᛭";
+  position: absolute;
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+.rune-border::before {
+  top: -0.5rem;
+  left: -0.5rem;
+}
+.rune-border::after {
+  bottom: -0.5rem;
+  right: -0.5rem;
+}
+
+/* Glass panel */
+.glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(22, 33, 62, 0.7),
+    rgba(26, 26, 46, 0.5)
+  );
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 169, 89, 0.15);
+}
+
+/* Gold text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold), var(--color-gold-dim));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Divider rune */
+.rune-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--color-gold-dim);
+  font-family: var(--font-runic);
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+}
+.rune-divider::before,
+.rune-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold-dim),
+    transparent
+  );
+}
+
+/* Stagger animation children */
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.7s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.8s; }
+.stagger-children > *:nth-child(9) { animation-delay: 0.9s; }
+.stagger-children > *:nth-child(10) { animation-delay: 1.0s; }
+
+/* Mist overlay */
+.mist-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(15, 15, 26, 0.9) 0%,
+    rgba(15, 15, 26, 0.4) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
