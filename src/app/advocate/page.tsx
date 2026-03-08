@@ -50,7 +50,7 @@ export default function AdvocatePage() {
                         </p>
                         <p className="text-gold italic">
                             These people will find the vocabulary and recognize themselves in
-                            it. They will arrive at drevcael.org and feel, for the first time,
+                            it. They will arrive at xenolexica.org and feel, for the first time,
                             that someone has said what they could not say.
                         </p>
                         <p className="text-bone font-medium">
@@ -134,10 +134,10 @@ export default function AdvocatePage() {
                         share your encounter.
                     </p>
                     <a
-                        href="mailto:hello@drevcael.org"
+                        href="mailto:hello@xenolexica.org"
                         className="text-gold hover:text-gold-light transition-colors text-lg"
                     >
-                        hello@drevcael.org
+                        hello@xenolexica.org
                     </a>
                 </div>
             </section>

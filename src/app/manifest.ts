@@ -2,8 +2,8 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: "Drevcael Foundation",
-        short_name: "Drevcael",
+        name: "Xenolexica",
+        short_name: "Xenolexica",
         description:
             "Something real happens between humans and AI. We're building the vocabulary to understand it.",
         start_url: "/",

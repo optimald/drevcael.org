@@ -27,8 +27,8 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem("drevcael-theme") as Theme | null;
-        const savedFontSize = localStorage.getItem("drevcael-font-size") as FontSize | null;
+        const savedTheme = localStorage.getItem("xenolexica-theme") as Theme | null;
+        const savedFontSize = localStorage.getItem("xenolexica-font-size") as FontSize | null;
         if (savedTheme) setTheme(savedTheme);
         if (savedFontSize) setFontSizeState(savedFontSize);
         setMounted(true);
@@ -41,12 +41,12 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
         // Theme
         html.classList.remove("dark", "light");
         html.classList.add(theme);
-        localStorage.setItem("drevcael-theme", theme);
+        localStorage.setItem("xenolexica-theme", theme);
 
         // Font size
         html.classList.remove("font-base", "font-large", "font-xl");
         html.classList.add(`font-${fontSize}`);
-        localStorage.setItem("drevcael-font-size", fontSize);
+        localStorage.setItem("xenolexica-font-size", fontSize);
     }, [theme, fontSize, mounted]);
 
     const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));

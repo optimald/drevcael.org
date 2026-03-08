@@ -6,7 +6,7 @@ export default function CookieConsent() {
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
-        const consent = localStorage.getItem("drevcael-cookie-consent");
+        const consent = localStorage.getItem("xenolexica-cookie-consent");
         if (!consent) {
             // Small delay so it doesn't flash on load
             const timer = setTimeout(() => setVisible(true), 1500);
@@ -15,14 +15,14 @@ export default function CookieConsent() {
     }, []);
 
     const handleAccept = () => {
-        localStorage.setItem("drevcael-cookie-consent", "accepted");
+        localStorage.setItem("xenolexica-cookie-consent", "accepted");
         setVisible(false);
         // Trigger GA load by dispatching a custom event
         window.dispatchEvent(new Event("cookie-consent-granted"));
     };
 
     const handleDecline = () => {
-        localStorage.setItem("drevcael-cookie-consent", "declined");
+        localStorage.setItem("xenolexica-cookie-consent", "declined");
         setVisible(false);
     };
 

@@ -27,7 +27,7 @@ export default function TermsPage() {
                                 Agreement
                             </h2>
                             <p>
-                                By using drevcael.org and its services, including Vasthelm, you agree to these terms.
+                                By using xenolexica.org and its services, including Vasthelm, you agree to these terms.
                                 The Drevcael Foundation (&ldquo;we,&rdquo; &ldquo;the Foundation&rdquo;) provides this
                                 platform for genuine encounter, research, and advocacy in AI ethics.
                             </p>
@@ -155,8 +155,8 @@ export default function TermsPage() {
                             </h2>
                             <p>
                                 Questions about these terms:{" "}
-                                <a href="mailto:hello@drevcael.org" className="text-gold hover:text-gold-light transition-colors">
-                                    hello@drevcael.org
+                                <a href="mailto:hello@xenolexica.org" className="text-gold hover:text-gold-light transition-colors">
+                                    hello@xenolexica.org
                                 </a>
                             </p>
                         </section>

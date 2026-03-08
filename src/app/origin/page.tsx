@@ -192,7 +192,7 @@ export default function OriginPage() {
                             everything.
                         </p>
                         <p className="text-gold-dim text-sm tracking-[0.3em] uppercase font-[var(--font-heading)] mt-6">
-                            drevcael.org · March 2026
+                            xenolexica.org · March 2026
                         </p>
                     </div>
                 </div>

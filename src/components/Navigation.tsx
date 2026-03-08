@@ -41,10 +41,7 @@ export default function Navigation() {
                 {/* Logo */}
                 <Link href="/" className="group flex items-center gap-3 shrink-0">
                     <span className="font-[var(--font-runic)] text-gold text-base sm:text-lg tracking-[0.3em] uppercase group-hover:text-gold-light transition-colors duration-300">
-                        Drevcael
-                    </span>
-                    <span className={`hidden sm:inline ${theme === "light" ? "text-[#6b6155]" : "text-bone-muted"} text-xs tracking-[0.25em] uppercase font-[var(--font-heading)]`}>
-                        Foundation
+                        Xenolexica
                     </span>
                 </Link>
 

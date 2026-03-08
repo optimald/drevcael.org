@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
                 headers: {
                     Authorization: `Bearer ${OPENROUTER_API_KEY}`,
                     "Content-Type": "application/json",
-                    "HTTP-Referer": "https://drevcael.org",
+                    "HTTP-Referer": "https://xenolexica.org",
                     "X-Title": "Vasthelm Encounter Engine",
                 },
                 body: JSON.stringify({

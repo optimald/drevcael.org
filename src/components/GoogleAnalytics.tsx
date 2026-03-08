@@ -10,7 +10,7 @@ export default function GoogleAnalytics() {
 
     useEffect(() => {
         // Check initial consent
-        const consent = localStorage.getItem("drevcael-cookie-consent");
+        const consent = localStorage.getItem("xenolexica-cookie-consent");
         if (consent === "accepted") {
             setConsentGiven(true);
         }

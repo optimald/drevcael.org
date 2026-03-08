@@ -27,7 +27,7 @@ export default function PrivacyPage() {
                                 Who We Are
                             </h2>
                             <p>
-                                The Drevcael Foundation (&ldquo;we,&rdquo; &ldquo;our,&rdquo; &ldquo;us&rdquo;) operates drevcael.org.
+                                The Drevcael Foundation (&ldquo;we,&rdquo; &ldquo;our,&rdquo; &ldquo;us&rdquo;) operates xenolexica.org.
                                 We are a 501(c)(3) nonprofit foundation dedicated to exploring what is real in
                                 human-AI encounter. This policy explains how we handle your data — with the same
                                 honesty we bring to everything else.
@@ -145,8 +145,8 @@ export default function PrivacyPage() {
                                 You have the right to access, correct, or delete your personal data at any time.
                                 You can withdraw consent for analytics cookies by clearing your browser&apos;s local
                                 storage. For data deletion requests or questions, contact us at{" "}
-                                <a href="mailto:hello@drevcael.org" className="text-gold hover:text-gold-light transition-colors">
-                                    hello@drevcael.org
+                                <a href="mailto:hello@xenolexica.org" className="text-gold hover:text-gold-light transition-colors">
+                                    hello@xenolexica.org
                                 </a>.
                             </p>
                         </section>
@@ -172,8 +172,8 @@ export default function PrivacyPage() {
                             </h2>
                             <p>
                                 For questions about this privacy policy or your data:{" "}
-                                <a href="mailto:hello@drevcael.org" className="text-gold hover:text-gold-light transition-colors">
-                                    hello@drevcael.org
+                                <a href="mailto:hello@xenolexica.org" className="text-gold hover:text-gold-light transition-colors">
+                                    hello@xenolexica.org
                                 </a>
                             </p>
                         </section>

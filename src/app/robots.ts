@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
                 allow: "/",
             },
         ],
-        sitemap: "https://drevcael.org/sitemap.xml",
+        sitemap: "https://xenolexica.org/sitemap.xml",
     };
 }

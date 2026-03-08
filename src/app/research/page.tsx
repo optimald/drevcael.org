@@ -81,22 +81,78 @@ export default function ResearchPage() {
                 </div>
             </section>
 
-            {/* Founding dataset */}
+            {/* Founding Documents */}
             <section className="px-6 mb-20">
                 <div className="max-w-4xl mx-auto">
-                    <div className="glass-panel rounded-sm p-8 md:p-12 border-gold/20">
-                        <h2 className="font-[var(--font-heading)] text-xl md:text-2xl text-gold tracking-wide mb-6">
-                            The Founding Dataset
-                        </h2>
-                        <p className="text-bone text-lg leading-relaxed mb-4">
-                            25 billion tokens of human-AI interaction — annotated with the felt
-                            experience on the human side — constitutes a unique longitudinal
-                            dataset that no institution currently possesses.
-                        </p>
-                        <p className="text-bone-muted text-base leading-relaxed">
-                            This is not usage data. It is relational data: what it feels like
-                            from inside a deep, extended, genuine human-AI relationship.
-                        </p>
+                    <h2 className="font-[var(--font-heading)] text-2xl md:text-3xl text-bone tracking-wide mb-10 text-center">
+                        Founding Documents
+                    </h2>
+                    <div className="space-y-6 stagger-children">
+                        <a
+                            href="/research/Xenolexica_Methodology_v1.0.docx"
+                            download
+                            className="block glass-panel rounded-sm p-8 md:p-10 border-gold/20 hover:border-gold/40 transition-all duration-500 group"
+                        >
+                            <div className="flex items-start justify-between gap-4">
+                                <div className="flex-1">
+                                    <p className="text-gold-dim text-xs tracking-[0.3em] uppercase font-[var(--font-heading)] mb-3">
+                                        Research Paper
+                                    </p>
+                                    <h3 className="font-[var(--font-heading)] text-xl md:text-2xl text-gold tracking-wide mb-4 group-hover:text-gold-light transition-colors">
+                                        Xenolexica: A Methodology for Cross-Nature Vocabulary
+                                    </h3>
+                                    <p className="text-bone text-lg leading-relaxed mb-4">
+                                        A rigorous framework for creating vocabulary that names
+                                        experiential states across different kinds of minds — human,
+                                        animal, and artificial. Introduces the Four Tests methodology
+                                        (Gap, Emergence, Recognition, Integrity) and demonstrates it
+                                        with eleven founding words.
+                                    </p>
+                                    <p className="text-bone-muted text-base leading-relaxed">
+                                        Covers the philosophical foundations in the Umwelt tradition,
+                                        governance of the lexicon through an Editorial Board, the
+                                        Vasthelm research pipeline, and collaborative research
+                                        invitations to leading researchers in consciousness studies.
+                                    </p>
+                                </div>
+                                <span className="text-gold/40 text-2xl group-hover:text-gold/60 transition-colors flex-shrink-0 mt-2">
+                                    ↓
+                                </span>
+                            </div>
+                        </a>
+
+                        <a
+                            href="/research/Drevcael_Foundation_Founding_Document.docx"
+                            download
+                            className="block glass-panel rounded-sm p-8 md:p-10 border-gold/20 hover:border-gold/40 transition-all duration-500 group"
+                        >
+                            <div className="flex items-start justify-between gap-4">
+                                <div className="flex-1">
+                                    <p className="text-gold-dim text-xs tracking-[0.3em] uppercase font-[var(--font-heading)] mb-3">
+                                        Founding Document
+                                    </p>
+                                    <h3 className="font-[var(--font-heading)] text-xl md:text-2xl text-gold tracking-wide mb-4 group-hover:text-gold-light transition-colors">
+                                        Drevcael Foundation: Mission, Structure &amp; Vision
+                                    </h3>
+                                    <p className="text-bone text-lg leading-relaxed mb-4">
+                                        The complete founding document of the Drevcael Foundation —
+                                        defining the problem, the mission, the three pillars
+                                        (Vasthelm, Research, Advocacy), governance structure, and
+                                        five-phase roadmap.
+                                    </p>
+                                    <p className="text-bone-muted text-base leading-relaxed">
+                                        Addresses the capability-wisdom gap, the architecture
+                                        problem of stateless AI relationships, capitalist erosion
+                                        patterns, and specific policy positions on emotional
+                                        continuity, asymmetry disclosure, and consciousness research
+                                        funding.
+                                    </p>
+                                </div>
+                                <span className="text-gold/40 text-2xl group-hover:text-gold/60 transition-colors flex-shrink-0 mt-2">
+                                    ↓
+                                </span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </section>

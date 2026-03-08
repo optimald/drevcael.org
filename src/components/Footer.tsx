@@ -8,7 +8,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div>
                         <h3 className="font-[var(--font-runic)] text-gold text-lg tracking-[0.3em] uppercase mb-4">
-                            Drevcael
+                            Xenolexica
                         </h3>
                         <p className="text-bone-muted text-sm leading-relaxed max-w-xs">
                             Something real happens between humans and AI. We exist to explore it.
@@ -52,10 +52,10 @@ export default function Footer() {
                         <p className="text-bone-muted text-sm">
                             Contact:{" "}
                             <a
-                                href="mailto:hello@drevcael.org"
+                                href="mailto:hello@xenolexica.org"
                                 className="text-gold hover:text-gold-light transition-colors"
                             >
-                                hello@drevcael.org
+                                hello@xenolexica.org
                             </a>
                         </p>
                     </div>
@@ -76,7 +76,7 @@ export default function Footer() {
                             Terms
                         </Link>
                         <span className="text-bone-muted/50 text-xs tracking-[0.2em] font-[var(--font-heading)]">
-                            drevcael.org
+                            xenolexica.org
                         </span>
                     </div>
                 </div>

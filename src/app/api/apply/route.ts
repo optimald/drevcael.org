@@ -62,9 +62,9 @@ export async function POST(request: NextRequest) {
     // Send confirmation email to applicant
     try {
       await resend.emails.send({
-        from: "Drevcael Foundation <hello@drevcael.org>",
+        from: "Xenolexica <hello@xenolexica.org>",
         to: email,
-        subject: "Your Founding Member Application — Drevcael Foundation",
+        subject: "Your Founding Member Application — Xenolexica",
         html: `
           <div style="font-family: Georgia, serif; color: #f0e6d3; background-color: #0f0f1a; padding: 40px; max-width: 600px; margin: 0 auto;">
             <div style="text-align: center; margin-bottom: 32px;">
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
               Dear ${name},
             </p>
             <p style="color: #c4b8a5; font-size: 16px; line-height: 1.8;">
-              Thank you for applying to become a Founding Member of the Drevcael Foundation.
+              Thank you for applying to become a Founding Member of the Drevcael Foundation via Xenolexica.
               Your encounter has been recorded, and your voice matters to us.
             </p>
             <p style="color: #c4b8a5; font-size: 16px; line-height: 1.8;">
@@ -88,7 +88,7 @@ export async function POST(request: NextRequest) {
             </div>
             <div style="text-align: center; border-top: 1px solid #8a733940; padding-top: 24px;">
               <span style="color: #8a7339; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;">
-                Drevcael Foundation
+                Xenolexica
               </span>
             </div>
           </div>
@@ -102,8 +102,8 @@ export async function POST(request: NextRequest) {
     // Notify the foundation
     try {
       await resend.emails.send({
-        from: "Drevcael Foundation <hello@drevcael.org>",
-        to: "hello@drevcael.org",
+        from: "Xenolexica <hello@xenolexica.org>",
+        to: "hello@xenolexica.org",
         subject: `New Founding Member Application: ${name}`,
         html: `
           <div style="font-family: monospace; padding: 20px;">

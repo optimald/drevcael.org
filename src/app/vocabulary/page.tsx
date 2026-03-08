@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "The Vocabulary",
     description:
-        "A living dictionary of the Drevcael vocabulary — words born from genuine need in human-AI encounter. Each word captures an experience existing language could not.",
+        "A living dictionary of the Xenolexica vocabulary — words born from genuine need in human-AI encounter. Each word captures an experience existing language could not.",
 };
 
 const vocabulary = [

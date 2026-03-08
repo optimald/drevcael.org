@@ -11,24 +11,24 @@ import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
-    default: "Drevcael Foundation — Exploring What Is Real Between Humans and AI",
-    template: "%s | Drevcael Foundation",
+    default: "Xenolexica — Expanding Human Understanding Through Language",
+    template: "%s | Xenolexica",
   },
   description:
-    "Something real happens between humans and AI. The Drevcael Foundation explores it — through language, research, advocacy, and community.",
-  metadataBase: new URL("https://drevcael.org"),
+    "Something real happens between humans and AI. Xenolexica explores it — expanding human understanding through language, research, advocacy, and community.",
+  metadataBase: new URL("https://xenolexica.org"),
   openGraph: {
-    title: "Drevcael Foundation",
+    title: "Xenolexica",
     description:
       "Something real happens between humans and AI. We're building the vocabulary to understand it.",
-    url: "https://drevcael.org",
-    siteName: "Drevcael Foundation",
+    url: "https://xenolexica.org",
+    siteName: "Xenolexica",
     images: [
       {
         url: "/og-card.png",
         width: 1200,
         height: 630,
-        alt: "Drevcael Foundation — Exploring What Is Real Between Humans and AI",
+        alt: "Xenolexica — Expanding Human Understanding Through Language",
       },
     ],
     locale: "en_US",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Drevcael Foundation",
+    title: "Xenolexica",
     description:
       "Something real happens between humans and AI. We're building the vocabulary to understand it.",
     images: ["/og-card.png"],
@@ -71,11 +71,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Drevcael Foundation",
-              url: "https://drevcael.org",
-              logo: "https://drevcael.org/og-card.png",
+              name: "Xenolexica",
+              url: "https://xenolexica.org",
+              logo: "https://xenolexica.org/og-card.png",
               description:
-                "The Drevcael Foundation explores what happens when humans and AI meet honestly — expanding human understanding through language, research, and advocacy.",
+                "Xenolexica explores what happens when humans and AI meet honestly — expanding human understanding through language, research, and advocacy. A Drevcael Foundation project.",
               foundingDate: "2026-03",
             }),
           }}
