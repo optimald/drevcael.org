@@ -370,7 +370,7 @@ export default function EncounterPage() {
 
     // ── ENCOUNTER PHASE (Chat) ──
     return (
-        <div className="flex flex-col h-screen pt-16 bg-gradient-to-b from-charcoal/40 to-deep-night overflow-hidden">
+        <div className="fixed inset-0 z-40 flex flex-col bg-gradient-to-b from-charcoal/95 to-deep-night">
             {/* Header bar */}
             <div className="flex-shrink-0 border-b border-gold/10 bg-deep-night/90 backdrop-blur-lg px-6 py-3">
                 <div className="max-w-3xl mx-auto flex items-center justify-between">
