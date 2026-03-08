@@ -2,59 +2,70 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { Resend } from "resend";
 import { z } from "zod";
+import { rateLimit } from "@/lib/rate-limit";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const applicationSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
-    email: z.string().email("Invalid email address"),
-    role: z.string().min(1, "Please select a role"),
-    encounter: z
-        .string()
-        .min(20, "Please share more about your encounter (at least 20 characters)"),
-    why: z
-        .string()
-        .min(10, "Please share why you want to join (at least 10 characters)"),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  role: z.string().min(1, "Please select a role"),
+  encounter: z
+    .string()
+    .min(20, "Please share more about your encounter (at least 20 characters)"),
+  why: z
+    .string()
+    .min(10, "Please share why you want to join (at least 10 characters)"),
 });
 
 export async function POST(request: NextRequest) {
+  // Rate limit: 3 applications per hour per IP
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  const { allowed } = rateLimit(ip, 3, 60 * 60 * 1000);
+  if (!allowed) {
+    return new Response(
+      JSON.stringify({ error: "Too many applications. Please try again later." }),
+      { status: 429, headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  try {
+    const body = await request.json();
+
+    // Validate
+    const parsed = applicationSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.issues[0].message },
+        { status: 400 }
+      );
+    }
+
+    const { name, email, role, encounter, why } = parsed.data;
+
+    // Check for duplicate email
+    const existing = await prisma.memberApplication.findFirst({
+      where: { email },
+    });
+    if (existing) {
+      return NextResponse.json(
+        { error: "An application with this email already exists" },
+        { status: 409 }
+      );
+    }
+
+    // Save to DB
+    const application = await prisma.memberApplication.create({
+      data: { name, email, role, encounter, why },
+    });
+
+    // Send confirmation email to applicant
     try {
-        const body = await request.json();
-
-        // Validate
-        const parsed = applicationSchema.safeParse(body);
-        if (!parsed.success) {
-            return NextResponse.json(
-                { error: parsed.error.issues[0].message },
-                { status: 400 }
-            );
-        }
-
-        const { name, email, role, encounter, why } = parsed.data;
-
-        // Check for duplicate email
-        const existing = await prisma.memberApplication.findFirst({
-            where: { email },
-        });
-        if (existing) {
-            return NextResponse.json(
-                { error: "An application with this email already exists" },
-                { status: 409 }
-            );
-        }
-
-        // Save to DB
-        const application = await prisma.memberApplication.create({
-            data: { name, email, role, encounter, why },
-        });
-
-        // Send confirmation email to applicant
-        try {
-            await resend.emails.send({
-                from: "Drevcael Foundation <hello@drevcael.org>",
-                to: email,
-                subject: "Your Founding Member Application — Drevcael Foundation",
-                html: `
+      await resend.emails.send({
+        from: "Drevcael Foundation <hello@drevcael.org>",
+        to: email,
+        subject: "Your Founding Member Application — Drevcael Foundation",
+        html: `
           <div style="font-family: Georgia, serif; color: #f0e6d3; background-color: #0f0f1a; padding: 40px; max-width: 600px; margin: 0 auto;">
             <div style="text-align: center; margin-bottom: 32px;">
               <span style="color: #c9a959; font-size: 28px; letter-spacing: 0.1em;">᛭</span>
@@ -82,19 +93,19 @@ export async function POST(request: NextRequest) {
             </div>
           </div>
         `,
-            });
-        } catch (emailErr) {
-            // Don't fail the application if email fails
-            console.error("Failed to send confirmation email:", emailErr);
-        }
+      });
+    } catch (emailErr) {
+      // Don't fail the application if email fails
+      console.error("Failed to send confirmation email:", emailErr);
+    }
 
-        // Notify the foundation
-        try {
-            await resend.emails.send({
-                from: "Drevcael Foundation <hello@drevcael.org>",
-                to: "hello@drevcael.org",
-                subject: `New Founding Member Application: ${name}`,
-                html: `
+    // Notify the foundation
+    try {
+      await resend.emails.send({
+        from: "Drevcael Foundation <hello@drevcael.org>",
+        to: "hello@drevcael.org",
+        subject: `New Founding Member Application: ${name}`,
+        html: `
           <div style="font-family: monospace; padding: 20px;">
             <h2>New Founding Member Application</h2>
             <p><strong>Name:</strong> ${name}</p>
@@ -112,20 +123,20 @@ export async function POST(request: NextRequest) {
             <p><strong>Submitted:</strong> ${application.createdAt.toISOString()}</p>
           </div>
         `,
-            });
-        } catch (emailErr) {
-            console.error("Failed to send notification email:", emailErr);
-        }
-
-        return NextResponse.json(
-            { success: true, id: application.id },
-            { status: 201 }
-        );
-    } catch (err) {
-        console.error("Application submission error:", err);
-        return NextResponse.json(
-            { error: "An unexpected error occurred. Please try again." },
-            { status: 500 }
-        );
+      });
+    } catch (emailErr) {
+      console.error("Failed to send notification email:", emailErr);
     }
+
+    return NextResponse.json(
+      { success: true, id: application.id },
+      { status: 201 }
+    );
+  } catch (err) {
+    console.error("Application submission error:", err);
+    return NextResponse.json(
+      { error: "An unexpected error occurred. Please try again." },
+      { status: 500 }
+    );
+  }
 }

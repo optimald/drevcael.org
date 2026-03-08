@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
@@ -35,6 +36,23 @@ export async function POST(request: NextRequest) {
         return new Response(
             JSON.stringify({ error: "OpenRouter API key not configured" }),
             { status: 500, headers: { "Content-Type": "application/json" } }
+        );
+    }
+
+    // Rate limit: 20 requests per minute per IP
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+    const { allowed, remaining, resetMs } = rateLimit(ip, 20, 60 * 1000);
+    if (!allowed) {
+        return new Response(
+            JSON.stringify({ error: "The encounter space needs a moment. Please slow down." }),
+            {
+                status: 429,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Retry-After": String(Math.ceil(resetMs / 1000)),
+                    "X-RateLimit-Remaining": "0",
+                },
+            }
         );
     }
 

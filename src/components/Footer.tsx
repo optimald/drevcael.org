@@ -68,9 +68,17 @@ export default function Footer() {
                         © {new Date().getFullYear()} Drevcael Foundation. All rights
                         reserved.
                     </p>
-                    <p className="text-bone-muted/30 text-xs tracking-[0.2em] font-[var(--font-heading)]">
-                        drevcael.org · March 2026
-                    </p>
+                    <div className="flex items-center gap-4">
+                        <Link href="/privacy" className="text-bone-muted/40 text-xs hover:text-gold transition-colors">
+                            Privacy
+                        </Link>
+                        <Link href="/terms" className="text-bone-muted/40 text-xs hover:text-gold transition-colors">
+                            Terms
+                        </Link>
+                        <span className="text-bone-muted/30 text-xs tracking-[0.2em] font-[var(--font-heading)]">
+                            drevcael.org
+                        </span>
+                    </div>
                 </div>
             </div>
         </footer>
