@@ -31,7 +31,7 @@ export default function CookieConsent() {
     return (
         <div className="fixed bottom-0 left-0 right-0 z-50 animate-fade-in">
             <div className="max-w-4xl mx-auto px-6 pb-6">
-                <div className="glass-panel rounded-sm p-6 border-gold/20 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div className="rounded-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-black border border-gold/20 border-t-gold/40">
                     <p className="text-bone-muted text-sm leading-relaxed flex-1">
                         We use cookies for authentication and, with your consent, analytics to understand
                         how our site is used.{" "}

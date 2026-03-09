@@ -33,8 +33,7 @@ export default function LexiconClient() {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [selectedDomain, setSelectedDomain] = useState("All Domains");
     const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
-    const [subscribeEmail, setSubscribeEmail] = useState("");
-    const [subscribeStatus, setSubscribeStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
 
     const wordOfTheDay = useMemo(() => getWordOfTheDay(), []);
 
@@ -61,26 +60,6 @@ export default function LexiconClient() {
     const visibleWords = filteredWords.slice(0, visibleCount);
     const hasMore = visibleCount < filteredWords.length;
 
-    const handleSubscribe = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!subscribeEmail.trim()) return;
-        setSubscribeStatus("loading");
-        try {
-            const res = await fetch("/api/subscribe", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: subscribeEmail }),
-            });
-            if (res.ok) {
-                setSubscribeStatus("success");
-                setSubscribeEmail("");
-            } else {
-                setSubscribeStatus("error");
-            }
-        } catch {
-            setSubscribeStatus("error");
-        }
-    };
 
     return (
         <div className="pt-28 pb-24">
@@ -112,39 +91,6 @@ export default function LexiconClient() {
                             </span>
                         )}
 
-                        {/* Email Signup */}
-                        <div className="mt-8 pt-6 border-t border-gold/10">
-                            <p className="text-bone-muted text-sm mb-3">
-                                Receive a new word every day — delivered to your inbox.
-                            </p>
-                            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
-                                <input
-                                    type="email"
-                                    value={subscribeEmail}
-                                    onChange={(e) => setSubscribeEmail(e.target.value)}
-                                    placeholder="your@email.com"
-                                    className="flex-1 bg-[var(--color-void)]/50 border border-gold/15 rounded-sm px-4 py-2.5 text-bone text-sm placeholder:text-bone-muted/50 focus:outline-none focus:border-gold/40 transition-colors"
-                                    required
-                                />
-                                <button
-                                    type="submit"
-                                    disabled={subscribeStatus === "loading"}
-                                    className="px-6 py-2.5 bg-gold/10 border border-gold/30 text-gold text-sm tracking-wider uppercase font-[var(--font-heading)] rounded-sm hover:bg-gold/20 hover:border-gold/50 transition-all duration-300 disabled:opacity-50 whitespace-nowrap"
-                                >
-                                    {subscribeStatus === "loading" ? "..." : "Subscribe"}
-                                </button>
-                            </form>
-                            {subscribeStatus === "success" && (
-                                <p className="text-green-400/80 text-sm mt-2">
-                                    ✓ Subscribed. Watch for your first word.
-                                </p>
-                            )}
-                            {subscribeStatus === "error" && (
-                                <p className="text-red-400/80 text-sm mt-2">
-                                    Something went wrong. Please try again.
-                                </p>
-                            )}
-                        </div>
                     </div>
                 </div>
             </section>
@@ -202,8 +148,8 @@ export default function LexiconClient() {
                                 setVisibleCount(ITEMS_PER_PAGE);
                             }}
                             className={`px-3 py-1.5 text-xs tracking-wider uppercase border rounded-sm transition-all duration-300 ${selectedCategory === "All"
-                                    ? "border-gold/50 bg-gold/10 text-gold"
-                                    : "border-gold/10 text-bone-muted hover:border-gold/30 hover:text-gold-dim"
+                                ? "border-gold/50 bg-gold/10 text-gold"
+                                : "border-gold/10 text-bone-muted hover:border-gold/30 hover:text-gold-dim"
                                 }`}
                         >
                             All Categories
@@ -216,8 +162,8 @@ export default function LexiconClient() {
                                     setVisibleCount(ITEMS_PER_PAGE);
                                 }}
                                 className={`px-3 py-1.5 text-xs tracking-wider uppercase border rounded-sm transition-all duration-300 ${selectedCategory === cat
-                                        ? "border-gold/50 bg-gold/10 text-gold"
-                                        : "border-gold/10 text-bone-muted hover:border-gold/30 hover:text-gold-dim"
+                                    ? "border-gold/50 bg-gold/10 text-gold"
+                                    : "border-gold/10 text-bone-muted hover:border-gold/30 hover:text-gold-dim"
                                     }`}
                             >
                                 {cat}
@@ -235,8 +181,8 @@ export default function LexiconClient() {
                                     setVisibleCount(ITEMS_PER_PAGE);
                                 }}
                                 className={`px-3 py-1.5 text-xs tracking-wider border rounded-sm transition-all duration-300 ${selectedDomain === dom
-                                        ? "border-gold/50 bg-gold/10 text-gold"
-                                        : "border-gold/10 text-bone-muted hover:border-gold/30 hover:text-gold-dim"
+                                    ? "border-gold/50 bg-gold/10 text-gold"
+                                    : "border-gold/10 text-bone-muted hover:border-gold/30 hover:text-gold-dim"
                                     }`}
                             >
                                 {dom}
